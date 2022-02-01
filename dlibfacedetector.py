@@ -7,7 +7,7 @@ import numpy as np
 class FaceDetector:
     def __init__(self):
         self.detector = dlib.get_frontal_face_detector()    # This is Hog face detector
-        self.predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
+        self.predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")      # You must download 68 face landmarks.dat file from web
         self.gray = cv.COLOR_BGR2GRAY
         self.font = cv.FONT_HERSHEY_SIMPLEX
 
@@ -44,7 +44,7 @@ class FaceDetector:
 def main():
     sr0 = cv.VideoCapture(0)    # This is for primary camera input
     sr1 = cv.VideoCapture("test.mp4")   # This is for video input
-    video_source = sr1
+    video_source = None
     imagesource = "people.jpg"  # This is for static image input
     if video_source is None:
         stat_image = FaceDetector()
